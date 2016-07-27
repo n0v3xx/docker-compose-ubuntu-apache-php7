@@ -1,0 +1,18 @@
+app_memcached:
+    image: memcached:1.4
+    container_name: app_memcached
+    hostname: memcached
+app_web:
+    container_name: app_web
+    build: ./docker
+    ports:
+        - "8880:80"
+    volumes:
+        - $SSH_AUTH_SOCK:$SSH_AUTH_SOCK
+        - .:/var/www/application
+    environment:
+        - SSH_AUTH_SOCK
+    working_dir: /var/www/application
+    hostname: web-container
+    links:
+        - app_memcached
