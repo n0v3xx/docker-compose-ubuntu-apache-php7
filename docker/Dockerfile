@@ -1,4 +1,4 @@
-FROM blackjack777/ubuntu-apache-php7:1.0
+FROM blackjack777/ubuntu-apache-php7:1.1
 
 ########################################################################################################################
 ### Create vhost and disable the default one
